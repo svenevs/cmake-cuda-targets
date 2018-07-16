@@ -219,6 +219,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppig_static.a`
 
     **Testing Program**: [`tests/nppig.cpp`](tests/nppig.cpp)
+- `nppim`: *morphological operation functions found in `nppi_morphological_operations.h`*
+    - `CUDA::nppim`
+        - `libnppim.so@`
+    - `CUDA::nppim_static`
+        - `libnppim_static.a`
+
+    **Testing Program**: [`tests/nppim.cpp`](tests/nppim.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -229,11 +236,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppim: *morphological operation functions found in `nppi_morphological_operations.h`*
-    - `CUDA::nppim`
-        - `libnppim.so@`
-    - `CUDA::nppim_static`
-        - `libnppim_static.a`
 - nppist: *statistics and linear transform in `nppi_statistics_functions.h` and `nppi_linear_transforms.h`*
     - `CUDA::nppist`
         - `libnppist.so@`

@@ -179,6 +179,14 @@ add_cuda_link_dependency(nppig_static CUDA::cudart_static)
 add_cuda_link_dependency(nppig_static CUDA::nppc_static)
 add_cuda_link_dependency(nppig_static CUDA::culibos)
 
+# nppim: morphological operation functions found in nppi_morphological_operations.h
+find_and_add_cuda_import_lib(nppim)
+find_and_add_cuda_import_lib(nppim_static)
+add_cuda_link_dependency(nppim CUDA::cudart)
+add_cuda_link_dependency(nppim_static CUDA::cudart_static)
+add_cuda_link_dependency(nppim_static CUDA::nppc_static)
+add_cuda_link_dependency(nppim_static CUDA::culibos)
+
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)
 find_and_add_cuda_import_lib(cublas_device)
