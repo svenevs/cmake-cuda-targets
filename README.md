@@ -191,6 +191,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppicc_static.a`
 
     **Testing Program**: [`tests/nppicc.cpp`](tests/nppicc.cpp)
+- `nppicom`: *JPEG compression and decompression functions in `nppi_compression_functions.h`*
+    - `CUDA::nppicom`
+        - `libnppicom.so@`
+    - `CUDA::nppicom_static`
+        - `libnppicom_static.a`
+
+    **Testing Program**: [`tests/nppicom.cpp`](tests/nppicom.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -201,11 +208,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppicom: *JPEG compression and decompression functions in `nppi_compression_functions.h`*
-    - `CUDA::nppicom`
-        - `libnppicom.so@`
-    - `CUDA::nppicom_static`
-        - `libnppicom_static.a`
 - nppidei: *data exchange and initialization functions in `nppi_data_exchange_and_initialization.h`*
     - `CUDA::nppidei`
         - `libnppidei.so@`

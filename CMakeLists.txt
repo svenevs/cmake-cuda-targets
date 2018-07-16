@@ -29,9 +29,10 @@ make_both_tests(curand)
 make_both_tests(cusolver)
 make_both_tests(cusparse)
 
-# TODO: nppi*
+# NPP component libraries.
 make_both_tests(nppial)
 make_both_tests(nppicc)
+make_both_tests(nppicom)
 
 # TODO: nvblas
 

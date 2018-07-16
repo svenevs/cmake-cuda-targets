@@ -72,21 +72,27 @@ endif()
 find_and_add_cuda_import_lib(nppc)
 find_and_add_cuda_import_lib(nppc_static)
 
-foreach (cuda_lib nppial nppicc)
-  # Find the NPP library.
-  find_and_add_cuda_import_lib(${cuda_lib})
-  find_and_add_cuda_import_lib(${cuda_lib}_static)
+# nppial: arithmetic and logical operation functions in nppi_arithmetic_and_logical_operations.h
+find_and_add_cuda_import_lib(nppial)
+find_and_add_cuda_import_lib(nppial_static)
+add_cuda_link_dependency(nppial CUDA::cudart)
+# TODO: add dynamic `nppc` dependency here / for any other nppc_static counterparts (e.g., nppicc)?
+add_cuda_link_dependency(nppial_static CUDA::cudart_static)
+add_cuda_link_dependency(nppial_static CUDA::nppc_static)
+add_cuda_link_dependency(nppial_static CUDA::culibos)
 
-  # Dynamic link dependencies.
-  # TODO: should we rely on dynamic libraries already having nppc or just add it anyway?
-  # add_cuda_link_dependency(${cuda_lib} CUDA::nppc)
-  add_cuda_link_dependency(${cuda_lib} CUDA::cudart)
+# nppicc: color conversion and sampling functions in nppi_color_conversion.h
+find_and_add_cuda_import_lib(nppicc)
+find_and_add_cuda_import_lib(nppicc_static)
+add_cuda_link_dependency(nppicc CUDA::cudart)
+add_cuda_link_dependency(nppicc_static CUDA::cudart_static)
+add_cuda_link_dependency(nppicc_static CUDA::nppc_static)
+add_cuda_link_dependency(nppicc_static CUDA::culibos)
 
-  # Static link dependencies.
-  add_cuda_link_dependency(${cuda_lib}_static CUDA::nppc_static)
-  add_cuda_link_dependency(${cuda_lib}_static CUDA::cudart_static)
-  add_cuda_link_dependency(${cuda_lib}_static CUDA::culibos)
-endforeach()
+# nppicom: JPEG compression and decompression functions in nppi_compression_functions.h
+find_and_add_cuda_import_lib(nppicom)
+find_and_add_cuda_import_lib(nppicom_static)
+
 
 # TODO: nvBLAS and example.  Depends on cuBLAS, but not sure how it works.
 #       Testing executable may need to find_package(BLAS)?  It seems like the idea is
