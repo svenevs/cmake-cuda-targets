@@ -187,6 +187,14 @@ add_cuda_link_dependency(nppim_static CUDA::cudart_static)
 add_cuda_link_dependency(nppim_static CUDA::nppc_static)
 add_cuda_link_dependency(nppim_static CUDA::culibos)
 
+# nppist: statistics and linear transform in nppi_statistics_functions.h and nppi_linear_transforms.h
+find_and_add_cuda_import_lib(nppist)
+find_and_add_cuda_import_lib(nppist_static)
+add_cuda_link_dependency(nppist CUDA::cudart)
+add_cuda_link_dependency(nppist_static CUDA::cudart_static)
+add_cuda_link_dependency(nppist_static CUDA::nppc_static)
+add_cuda_link_dependency(nppist_static CUDA::culibos)
+
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)
 find_and_add_cuda_import_lib(cublas_device)
