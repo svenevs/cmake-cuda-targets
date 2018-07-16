@@ -171,6 +171,14 @@ add_cuda_link_dependency(nppif_static CUDA::cudart_static)
 add_cuda_link_dependency(nppif_static CUDA::nppc_static)
 add_cuda_link_dependency(nppif_static CUDA::culibos)
 
+# nppig: geometry transformation functions found in nppi_geometry_transforms.h
+find_and_add_cuda_import_lib(nppig)
+find_and_add_cuda_import_lib(nppig_static)
+add_cuda_link_dependency(nppig CUDA::cudart)
+add_cuda_link_dependency(nppig_static CUDA::cudart_static)
+add_cuda_link_dependency(nppig_static CUDA::nppc_static)
+add_cuda_link_dependency(nppig_static CUDA::culibos)
+
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)
 find_and_add_cuda_import_lib(cublas_device)
