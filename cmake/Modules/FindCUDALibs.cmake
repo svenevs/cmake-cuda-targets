@@ -61,7 +61,6 @@ endif()
 # TODO: NPPI and various libs, need examples to test with:
 #       https://docs.nvidia.com/cuda/npp/index.html
 #
-#       * nppial  arithmetic and logical operation functions in nppi_arithmetic_and_logical_operations.h
 #       * nppicc  color conversion and sampling functions in nppi_color_conversion.h
 #       * nppicom JPEG compression and decompression functions in nppi_compression_functions.h
 #       * nppidei data exchange and initialization functions in nppi_data_exchange_and_initialization.h
@@ -71,6 +70,23 @@ endif()
 #       * nppist  statistics and linear transform in nppi_statistics_functions.h and nppi_linear_transforms.h
 #       * nppisu  memory support functions in nppi_support_functions.h
 #       * nppitc  threshold and compare operation functions in nppi_threshold_and_compare_operations.h
+find_and_add_cuda_import_lib(nppc)
+find_and_add_cuda_import_lib(nppc_static)
+
+foreach (cuda_lib nppial)
+  # Find the NPP library.
+  find_and_add_cuda_import_lib(${cuda_lib})
+  find_and_add_cuda_import_lib(${cuda_lib}_static)
+
+  # Dynamic link dependencies.
+  # add_cuda_link_dependency(${cuda_lib} CUDA::nppc)
+  add_cuda_link_dependency(${cuda_lib} CUDA::cudart)
+
+  # Static link dependencies.
+  add_cuda_link_dependency(${cuda_lib}_static CUDA::nppc_static)
+  add_cuda_link_dependency(${cuda_lib}_static CUDA::cudart_static)
+  add_cuda_link_dependency(${cuda_lib}_static CUDA::culibos)
+endforeach()
 
 # TODO: nvBLAS and example.  Depends on cuBLAS, but not sure how it works.
 #       Testing executable may need to find_package(BLAS)?  It seems like the idea is

@@ -168,22 +168,32 @@ The [`cuSPARSE` library](https://docs.nvidia.com/cuda/cusparse/index.html).
 
 The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
 
+**Targets Created**:
+
+- `nppc`: *it is not clear what this library actually is*
+    - `CUDA::nppc`
+        - `libnppc.so@`
+    - `CUDA::nppc_static`
+        - `libnppc_static.a`
+
+    **Testing Program**: **TODO** ??? it's statically linked in many
+- `nppial`: *arithmetic and logical operation functions in `nppi_arithmetic_and_logical_operations.h`*
+    - `CUDA::nppial`
+        - `libnppial.so@`
+    - `CUDA::nppial_static`
+        - `libnppial_static.a`
+
+    **Testing Program**: [`tests/nppial.cpp`](tests/nppial.cpp)
+
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
 
 
 Unknown libraries not mentioned in documentation:
 
-- `libnppc.so@`
-- `libnppc_static.a`
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppial: *arithmetic and logical operation functions in `nppi_arithmetic_and_logical_operations.h`*
-    - `CUDA::nppial`
-        - `libnppial.so@`
-    - `CUDA::nppial_static`
-        - `libnppial_static.a`
 - nppicc: *color conversion and sampling functions in `nppi_color_conversion.h`*
     - `CUDA::nppicc`
         - `libnppicc.so@`

@@ -30,6 +30,8 @@ make_both_tests(cusolver)
 make_both_tests(cusparse)
 
 # TODO: nppi*
+make_both_tests(nppial)
+
 # TODO: nvblas
 
 make_both_tests(nvgraph)
