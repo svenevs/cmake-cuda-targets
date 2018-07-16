@@ -240,6 +240,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppisu_static.a`
 
     **Testing Program**: [`tests/nppisu.cpp`](tests/nppisu.cpp)
+- `nppitc`: *threshold and compare operation functions in `nppi_threshold_and_compare_operations.h`*
+    - `CUDA::nppitc`
+        - `libnppitc.so@`
+    - `CUDA::nppitc_static`
+        - `libnppitc_static.a`
+
+    **Testing Program**: [`tests/nppitc.cpp`](tests/nppitc.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -250,11 +257,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppitc: *threshold and compare operation functions in `nppi_threshold_and_compare_operations.h`*
-    - `CUDA::nppitc`
-        - `libnppitc.so@`
-    - `CUDA::nppitc_static`
-        - `libnppitc_static.a`
 
 # nvBLAS
 

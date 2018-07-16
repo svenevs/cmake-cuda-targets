@@ -39,6 +39,7 @@ make_both_tests(nppig)
 make_both_tests(nppim)
 make_both_tests(nppist)
 make_both_tests(nppisu)
+make_both_tests(nppitc)
 
 # TODO: nvblas
 

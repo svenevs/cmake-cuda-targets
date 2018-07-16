@@ -201,6 +201,15 @@ find_and_add_cuda_import_lib(nppisu_static)
 add_cuda_link_dependency(nppisu CUDA::cudart)
 add_cuda_link_dependency(nppisu_static CUDA::cudart_static)
 
+# nppitc: threshold and compare operation functions in nppi_threshold_and_compare_operations.h
+find_and_add_cuda_import_lib(nppitc)
+find_and_add_cuda_import_lib(nppitc_static)
+add_cuda_link_dependency(nppitc CUDA::cudart)
+add_cuda_link_dependency(nppitc_static CUDA::cudart_static)
+add_cuda_link_dependency(nppitc_static CUDA::nppc_static)
+add_cuda_link_dependency(nppitc_static CUDA::culibos)
+
+
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)
 find_and_add_cuda_import_lib(cublas_device)
