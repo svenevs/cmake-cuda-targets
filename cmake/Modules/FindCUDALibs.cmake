@@ -195,6 +195,12 @@ add_cuda_link_dependency(nppist_static CUDA::cudart_static)
 add_cuda_link_dependency(nppist_static CUDA::nppc_static)
 add_cuda_link_dependency(nppist_static CUDA::culibos)
 
+# nppisu: memory support functions in nppi_support_functions.h
+find_and_add_cuda_import_lib(nppisu)
+find_and_add_cuda_import_lib(nppisu_static)
+add_cuda_link_dependency(nppisu CUDA::cudart)
+add_cuda_link_dependency(nppisu_static CUDA::cudart_static)
+
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)
 find_and_add_cuda_import_lib(cublas_device)

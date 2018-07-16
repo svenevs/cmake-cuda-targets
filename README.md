@@ -233,6 +233,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppist_static.a`
 
     **Testing Program**: [`tests/nppist.cpp`](tests/nppist.cpp)
+- `nppisu`: *memory support functions in `nppi_support_functions.h`*
+    - `CUDA::nppisu`
+        - `libnppisu.so@`
+    - `CUDA::nppisu_static`
+        - `libnppisu_static.a`
+
+    **Testing Program**: [`tests/nppisu.cpp`](tests/nppisu.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -243,11 +250,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppisu: *memory support functions in `nppi_support_functions.h`*
-    - `CUDA::nppisu`
-        - `libnppisu.so@`
-    - `CUDA::nppisu_static`
-        - `libnppisu_static.a`
 - nppitc: *threshold and compare operation functions in `nppi_threshold_and_compare_operations.h`*
     - `CUDA::nppitc`
         - `libnppitc.so@`
