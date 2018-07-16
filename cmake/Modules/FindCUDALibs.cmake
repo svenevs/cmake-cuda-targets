@@ -58,42 +58,6 @@ if (UNIX)
   endforeach()
 endif()
 
-# TODO: NPPI and various libs, need examples to test with:
-#       https://docs.nvidia.com/cuda/npp/index.html
-#
-#       * nppicom JPEG compression and decompression functions in nppi_compression_functions.h
-#       * nppidei data exchange and initialization functions in nppi_data_exchange_and_initialization.h
-#       * nppif   filtering and computer vision functions in nppi_filter_functions.h
-#       * nppig   geometry transformation functions found in nppi_geometry_transforms.h
-#       * nppim   morphological operation functions found in nppi_morphological_operations.h
-#       * nppist  statistics and linear transform in nppi_statistics_functions.h and nppi_linear_transforms.h
-#       * nppisu  memory support functions in nppi_support_functions.h
-#       * nppitc  threshold and compare operation functions in nppi_threshold_and_compare_operations.h
-find_and_add_cuda_import_lib(nppc)
-find_and_add_cuda_import_lib(nppc_static)
-
-# nppial: arithmetic and logical operation functions in nppi_arithmetic_and_logical_operations.h
-find_and_add_cuda_import_lib(nppial)
-find_and_add_cuda_import_lib(nppial_static)
-add_cuda_link_dependency(nppial CUDA::cudart)
-# TODO: add dynamic `nppc` dependency here / for any other nppc_static counterparts (e.g., nppicc)?
-add_cuda_link_dependency(nppial_static CUDA::cudart_static)
-add_cuda_link_dependency(nppial_static CUDA::nppc_static)
-add_cuda_link_dependency(nppial_static CUDA::culibos)
-
-# nppicc: color conversion and sampling functions in nppi_color_conversion.h
-find_and_add_cuda_import_lib(nppicc)
-find_and_add_cuda_import_lib(nppicc_static)
-add_cuda_link_dependency(nppicc CUDA::cudart)
-add_cuda_link_dependency(nppicc_static CUDA::cudart_static)
-add_cuda_link_dependency(nppicc_static CUDA::nppc_static)
-add_cuda_link_dependency(nppicc_static CUDA::culibos)
-
-# nppicom: JPEG compression and decompression functions in nppi_compression_functions.h
-find_and_add_cuda_import_lib(nppicom)
-find_and_add_cuda_import_lib(nppicom_static)
-
-
 # TODO: nvBLAS and example.  Depends on cuBLAS, but not sure how it works.
 #       Testing executable may need to find_package(BLAS)?  It seems like the idea is
 #       you write a standard BLAS level 3 operation, and at link time nvBLAS will take
@@ -155,6 +119,49 @@ foreach (dep cusolver curand)
   add_cuda_link_dependency(nvgraph CUDA::${dep})
   add_cuda_link_dependency(nvgraph_static CUDA::${dep}_static)
 endforeach()
+
+# TODO: NPPI and various libs, need examples to test with:
+#       https://docs.nvidia.com/cuda/npp/index.html
+#
+#       * nppicom JPEG compression and decompression functions in nppi_compression_functions.h
+#       * nppidei data exchange and initialization functions in nppi_data_exchange_and_initialization.h
+#       * nppif   filtering and computer vision functions in nppi_filter_functions.h
+#       * nppig   geometry transformation functions found in nppi_geometry_transforms.h
+#       * nppim   morphological operation functions found in nppi_morphological_operations.h
+#       * nppist  statistics and linear transform in nppi_statistics_functions.h and nppi_linear_transforms.h
+#       * nppisu  memory support functions in nppi_support_functions.h
+#       * nppitc  threshold and compare operation functions in nppi_threshold_and_compare_operations.h
+find_and_add_cuda_import_lib(nppc)
+find_and_add_cuda_import_lib(nppc_static)
+
+# nppial: arithmetic and logical operation functions in nppi_arithmetic_and_logical_operations.h
+find_and_add_cuda_import_lib(nppial)
+find_and_add_cuda_import_lib(nppial_static)
+add_cuda_link_dependency(nppial CUDA::cudart)
+# TODO: add dynamic `nppc` dependency here / for any other nppc_static counterparts (e.g., nppicc)?
+add_cuda_link_dependency(nppial_static CUDA::cudart_static)
+add_cuda_link_dependency(nppial_static CUDA::nppc_static)
+add_cuda_link_dependency(nppial_static CUDA::culibos)
+
+# nppicc: color conversion and sampling functions in nppi_color_conversion.h
+find_and_add_cuda_import_lib(nppicc)
+find_and_add_cuda_import_lib(nppicc_static)
+add_cuda_link_dependency(nppicc CUDA::cudart)
+add_cuda_link_dependency(nppicc_static CUDA::cudart_static)
+add_cuda_link_dependency(nppicc_static CUDA::nppc_static)
+add_cuda_link_dependency(nppicc_static CUDA::culibos)
+
+# nppicom: JPEG compression and decompression functions in nppi_compression_functions.h
+find_and_add_cuda_import_lib(nppicom)
+find_and_add_cuda_import_lib(nppicom_static)
+
+# nppidei: data exchange and initialization functions in nppi_data_exchange_and_initialization.h
+find_and_add_cuda_import_lib(nppidei)
+find_and_add_cuda_import_lib(nppidei_static)
+add_cuda_link_dependency(nppidei CUDA::cudart)
+add_cuda_link_dependency(nppidei_static CUDA::cudart_static)
+add_cuda_link_dependency(nppidei_static CUDA::nppc_static)
+add_cuda_link_dependency(nppidei_static CUDA::culibos)
 
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)

@@ -198,6 +198,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppicom_static.a`
 
     **Testing Program**: [`tests/nppicom.cpp`](tests/nppicom.cpp)
+- `nppidei`: *data exchange and initialization functions in `nppi_data_exchange_and_initialization.h`*
+    - `CUDA::nppidei`
+        - `libnppidei.so@`
+    - `CUDA::nppidei_static`
+        - `libnppidei_static.a`
+
+    **Testing Program**: [`tests/nppidei.cpp`](tests/nppidei.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -208,11 +215,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppidei: *data exchange and initialization functions in `nppi_data_exchange_and_initialization.h`*
-    - `CUDA::nppidei`
-        - `libnppidei.so@`
-    - `CUDA::nppidei_static`
-        - `libnppidei_static.a`
 - nppif: *filtering and computer vision functions in `nppi_filter_functions.h`*
     - `CUDA::nppif`
         - `libnppif.so@`
