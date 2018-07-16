@@ -163,6 +163,14 @@ add_cuda_link_dependency(nppidei_static CUDA::cudart_static)
 add_cuda_link_dependency(nppidei_static CUDA::nppc_static)
 add_cuda_link_dependency(nppidei_static CUDA::culibos)
 
+# nppif: filtering and computer vision functions in nppi_filter_functions.h
+find_and_add_cuda_import_lib(nppif)
+find_and_add_cuda_import_lib(nppif_static)
+add_cuda_link_dependency(nppif CUDA::cudart)
+add_cuda_link_dependency(nppif_static CUDA::cudart_static)
+add_cuda_link_dependency(nppif_static CUDA::nppc_static)
+add_cuda_link_dependency(nppif_static CUDA::culibos)
+
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)
 find_and_add_cuda_import_lib(cublas_device)

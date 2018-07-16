@@ -34,6 +34,7 @@ make_both_tests(nppial)
 make_both_tests(nppicc)
 make_both_tests(nppicom)
 make_both_tests(nppidei)
+make_both_tests(nppif)
 
 # TODO: nvblas
 

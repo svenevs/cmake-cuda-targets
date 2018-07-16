@@ -205,6 +205,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppidei_static.a`
 
     **Testing Program**: [`tests/nppidei.cpp`](tests/nppidei.cpp)
+- `nppif`: *filtering and computer vision functions in `nppi_filter_functions.h`*
+    - `CUDA::nppif`
+        - `libnppif.so@`
+    - `CUDA::nppif_static`
+        - `libnppif_static.a`
+
+    **Testing Program**: [`tests/nppif.cpp`](tests/nppif.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -215,11 +222,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppif: *filtering and computer vision functions in `nppi_filter_functions.h`*
-    - `CUDA::nppif`
-        - `libnppif.so@`
-    - `CUDA::nppif_static`
-        - `libnppif_static.a`
 - nppig: *geometry transformation functions found in `nppi_geometry_transforms.h`*
     - `CUDA::nppig`
         - `libnppig.so@`
