@@ -184,6 +184,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppial_static.a`
 
     **Testing Program**: [`tests/nppial.cpp`](tests/nppial.cpp)
+- `nppicc`: *color conversion and sampling functions in `nppi_color_conversion.h`*
+    - `CUDA::nppicc`
+        - `libnppicc.so@`
+    - `CUDA::nppicc_static`
+        - `libnppicc_static.a`
+
+    **Testing Program**: [`tests/nppicc.cpp`](tests/nppicc.cpp)
 
 **TODO**: none of these are implemented, need to figure out how to create some
 minimal working examples for these...
@@ -194,11 +201,6 @@ Unknown libraries not mentioned in documentation:
 - `libnpps.so@`
 - `libnpps_static.a`
 
-- nppicc: *color conversion and sampling functions in `nppi_color_conversion.h`*
-    - `CUDA::nppicc`
-        - `libnppicc.so@`
-    - `CUDA::nppicc_static`
-        - `libnppicc_static.a`
 - nppicom: *JPEG compression and decompression functions in `nppi_compression_functions.h`*
     - `CUDA::nppicom`
         - `libnppicom.so@`

@@ -61,7 +61,6 @@ endif()
 # TODO: NPPI and various libs, need examples to test with:
 #       https://docs.nvidia.com/cuda/npp/index.html
 #
-#       * nppicc  color conversion and sampling functions in nppi_color_conversion.h
 #       * nppicom JPEG compression and decompression functions in nppi_compression_functions.h
 #       * nppidei data exchange and initialization functions in nppi_data_exchange_and_initialization.h
 #       * nppif   filtering and computer vision functions in nppi_filter_functions.h
@@ -73,12 +72,13 @@ endif()
 find_and_add_cuda_import_lib(nppc)
 find_and_add_cuda_import_lib(nppc_static)
 
-foreach (cuda_lib nppial)
+foreach (cuda_lib nppial nppicc)
   # Find the NPP library.
   find_and_add_cuda_import_lib(${cuda_lib})
   find_and_add_cuda_import_lib(${cuda_lib}_static)
 
   # Dynamic link dependencies.
+  # TODO: should we rely on dynamic libraries already having nppc or just add it anyway?
   # add_cuda_link_dependency(${cuda_lib} CUDA::nppc)
   add_cuda_link_dependency(${cuda_lib} CUDA::cudart)
 

@@ -31,6 +31,7 @@ make_both_tests(cusparse)
 
 # TODO: nppi*
 make_both_tests(nppial)
+make_both_tests(nppicc)
 
 # TODO: nvblas
 

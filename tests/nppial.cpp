@@ -7,7 +7,7 @@
 #include <assert.h>
 #include <iostream>
 
-int main(){
+int main(void) {
     /**
      * One 8-bit unsigned char channel in place image add constant, scale, then clamp to saturated value.
      */
