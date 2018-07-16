@@ -209,6 +209,14 @@ add_cuda_link_dependency(nppitc_static CUDA::cudart_static)
 add_cuda_link_dependency(nppitc_static CUDA::nppc_static)
 add_cuda_link_dependency(nppitc_static CUDA::culibos)
 
+# npps: ???
+# TODO: ^^^
+find_and_add_cuda_import_lib(npps)
+find_and_add_cuda_import_lib(npps_static)
+add_cuda_link_dependency(npps CUDA::cudart)
+add_cuda_link_dependency(npps_static CUDA::cudart_static)
+add_cuda_link_dependency(npps_static CUDA::nppc_static)
+add_cuda_link_dependency(npps_static CUDA::culibos)
 
 # TODO: mysterious extra static libraries...what are they for?
 find_and_add_cuda_import_lib(cudadevrt)

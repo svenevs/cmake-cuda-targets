@@ -170,7 +170,7 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
 
 **Targets Created**:
 
-- `nppc`: *it is not clear what this library actually is*
+- `nppc`: **TODO**: descrption ???
     - `CUDA::nppc`
         - `libnppc.so@`
     - `CUDA::nppc_static`
@@ -247,16 +247,13 @@ The [`NPP` libraries](https://docs.nvidia.com/cuda/npp/index.html).
         - `libnppitc_static.a`
 
     **Testing Program**: [`tests/nppitc.cpp`](tests/nppitc.cpp)
+- `npps`: **TODO**: descrption ???
+    - `CUDA::npps`
+        - `libnpps.so@`
+    - `CUDA::npps_static`
+        - `libnpps_static.a`
 
-**TODO**: none of these are implemented, need to figure out how to create some
-minimal working examples for these...
-
-
-Unknown libraries not mentioned in documentation:
-
-- `libnpps.so@`
-- `libnpps_static.a`
-
+    **Testing Program**: [`tests/npps.cpp`](tests/npps.cpp)
 
 # nvBLAS
 
