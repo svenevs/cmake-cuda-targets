@@ -62,9 +62,31 @@ endif()
 #       Testing executable may need to find_package(BLAS)?  It seems like the idea is
 #       you write a standard BLAS level 3 operation, and at link time nvBLAS will take
 #       over somehow?
+# cuBLAS treated specially, static library needs to link against a BLAS
+# library for *gemm_ symbols.  So both dynamic and static library are only added
+# if BLAS can be found for consistency (missing dynamic case will be a library
+# load error at runtime).
+# Find dynamic blas for cusolver dynamic target
+set(BLA_STATIC OFF)
+find_package(BLAS)
+if (BLAS_FOUND)
+  find_and_add_cuda_import_lib(cublas)
+  add_cuda_link_dependency(cublas CUDA::cudart)
+  add_cuda_link_dependency(cublas ${BLAS_LIBRARIES})
+endif()
+
+# Find static blas for cublas static target
+set(BLAS_FOUND OFF)
+set(BLA_STATIC ON)
+find_package(BLAS)
+if (BLAS_FOUND)
+  find_and_add_cuda_import_lib(cublas_static)
+  add_cuda_link_dependency(cublas_static CUDA::cudart_static)
+  add_cuda_link_dependency(cublas_static ${BLAS_LIBRARIES})
+endif()
 
 # TODO: (nppi* nvblas)
-foreach (cuda_lib cublas cufft cufftw curand cusolver cusparse nvgraph)
+foreach (cuda_lib cufft cufftw curand cusolver cusparse nvgraph nvjpeg)
   # find the dynamic library
   find_and_add_cuda_import_lib(${cuda_lib})
   add_cuda_link_dependency(${cuda_lib} CUDA::cudart)
@@ -74,6 +96,8 @@ foreach (cuda_lib cublas cufft cufftw curand cusolver cusparse nvgraph)
   find_and_add_cuda_import_lib(${cuda_lib}_static)
   add_cuda_link_dependency(${cuda_lib}_static CUDA::cudart_static)
 endforeach()
+
+
 
 # NVRTC (Runtime Compilation) is a shared library only.
 # TODO: nvrtc needs -lcuda (*NOT* cudart), but -lcuda (at least on this system)
@@ -102,7 +126,7 @@ add_cuda_link_dependency(nvToolsExt CUDA::cudart)
 # > CUDA toolkit.
 find_and_add_cuda_import_lib(culibos)
 # foreach (cuda_lib cublas cusparse cufft) # curand npp
-foreach (cuda_lib cublas cufft cusparse curand)# npp
+foreach (cuda_lib cublas cufft cusparse curand nvjpeg)# npp
   add_cuda_link_dependency(${cuda_lib}_static CUDA::culibos)
 endforeach()
 

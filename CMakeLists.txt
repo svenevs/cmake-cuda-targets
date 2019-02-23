@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.9...3.12 FATAL_ERROR)
-project(cmake_cuda_libs_tests LANGUAGES CXX)
+project(cmake_cuda_libs_tests LANGUAGES C CXX)
+
+foreach (lang CXX CUDA)
+  set(CMAKE_${lang}_STANDARD 14)
+  set(CMAKE_${lang}_STANDARD_REQUIRED ON)
+  set(CMAKE_${lang}_EXTENSIONS OFF)
+endforeach()
 
 # eventually this gets added to an MR to CMake proper...
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules)
@@ -31,20 +37,21 @@ make_both_tests(cusparse)
 
 # NPP component libraries.
 make_both_tests(nppial)
-make_both_tests(nppicc)
+# make_both_tests(nppicc)
 make_both_tests(nppicom)
 make_both_tests(nppidei)
 make_both_tests(nppif)
 make_both_tests(nppig)
 make_both_tests(nppim)
 make_both_tests(nppist)
-make_both_tests(nppisu)
+# make_both_tests(nppisu)
 make_both_tests(nppitc)
-make_both_tests(npps)
+# make_both_tests(npps)
 
 # TODO: nvblas
 
 make_both_tests(nvgraph)
+make_both_tests(nvjpeg)
 
 # NVRTC (Runtime Compilation) is a shared library only.
 add_executable(test-nvrtc tests/nvrtc.cpp)
