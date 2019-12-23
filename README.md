@@ -1,5 +1,14 @@
 # cmake-cuda-targets
 
+--------------
+
+This work was completed thanks to Rob Maynard in [cmake/#4093](https://gitlab.kitware.com/cmake/cmake/merge_requests/4093),
+the `FindCUDAToolkit` module should be available in CMake 3.17 :tada:  The
+[`master` branch docs can be found here](https://cmake.org/cmake/help/git-master/module/FindCUDAToolkit.html),
+this repository will likely be archived once this is officially released.
+
+--------------
+
 This repository is being used to implement `FindCUDALibs.cmake` for making
 the NVIDIA CUDA Toolkit libraries such as `cuBLAS` or `cuSOLVER` available in
 CMake.  This work is intended to resolve issue
